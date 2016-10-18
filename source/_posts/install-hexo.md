@@ -97,14 +97,14 @@ tags: hexo
 
 上传完成之后，我们就拥有了两个远程的分支：master和hexo，其中master是部署成博客的分支；hexo是我们可以clone到其他电脑或其他系统的hexo源文件的分支，而且我们已经将它设置成默认仓库；
 
-3. 在其他电脑设备上执行clone远程仓库到本地，
+3. 在其他电脑设备上执行clone远程仓库的hexo分支clone到本地，
 
-> git clone git@github.com:yourname/yourname.github.io.git
+> git clone -b hexo git@github.com:yourname/yourname.github.io.git
 
-进入本地仓库执行hexo安装：`npm install hexo` `npm install` ` npm install hexo-deployer-git --save`
+进入本地仓库执行hexo安装：`npm install`
 
 4. 编辑本地blog之后，编辑发布博客
 
 依次执行`git add .` ,`git commit -m "改了啥"`， `git push origin hexo`,同步本地仓库到远程
 
-部署发布博客: `hexo g -d`，这样就生成静态网页部署到了github中
+部署发布博客: `hexo g`，`hexo d`这样就生成静态网页部署到了github中
