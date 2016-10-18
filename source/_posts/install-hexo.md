@@ -71,11 +71,15 @@ tags: hexo
 
 - 先在远程仓库新建一个branch，比如hexo
 
+<center>
 ![new branch](http://of6x0sb2r.bkt.clouddn.com/newHexoBranch.png "新建branch")
+</center>
 
 接着将hexo的分支设为默认，
- 
+
+<center>
 ![default branch](http://of6x0sb2r.bkt.clouddn.com/SetDefaultBranch.png "设置默认branch")
+</center>
 
 - 将我们的源文件上传到hexo分支
 
