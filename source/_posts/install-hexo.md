@@ -67,6 +67,8 @@ tags: hexo
 > https：//yourname.github.io
 
 ---
+## 使用git进行版本控制，实现不同终端同步
+
 如果在其他电脑上或者系统上编辑自己的博客也很简单：
 
 - 先在远程仓库新建一个branch，比如hexo
@@ -97,7 +99,9 @@ tags: hexo
 
 将本地仓库的源文件分支hexo强制推送到远程仓库hexo分支：`git push origin hexo -f`
 
+<center>
 ![hexo branch](http://of6x0sb2r.bkt.clouddn.com/hexo_srcfiles.png "上传完成")
+</center>
 
 上传完成之后，我们就拥有了两个远程的分支：master和hexo，其中master是部署成博客的分支；hexo是我们可以clone到其他电脑或其他系统的hexo源文件的分支，而且我们已经将它设置成默认仓库；
 
