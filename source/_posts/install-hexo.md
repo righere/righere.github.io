@@ -69,7 +69,7 @@ tags: hexo
 ---
 如果在其他电脑上或者系统上编辑自己的博客也很简单：
 
-1. 先在远程仓库新建一个branch，比如hexo
+- 先在远程仓库新建一个branch，比如hexo
 
 ![new branch](http://of6x0sb2r.bkt.clouddn.com/newHexoBranch.png "新建branch")
 
@@ -77,7 +77,7 @@ tags: hexo
  
 ![default branch](http://of6x0sb2r.bkt.clouddn.com/SetDefaultBranch.png "设置默认branch")
 
-2. 将我们的源文件上传到hexo分支
+- 将我们的源文件上传到hexo分支
 
 >注意这里有个巨大的坑！！！如果你用的是第三方的主题theme，是使用git clone下来的话，要把主题文件夹下面把.git文件夹删除掉，不然主题无法push到远程仓库，导致你发布的博客是一片空白
 
@@ -97,13 +97,13 @@ tags: hexo
 
 上传完成之后，我们就拥有了两个远程的分支：master和hexo，其中master是部署成博客的分支；hexo是我们可以clone到其他电脑或其他系统的hexo源文件的分支，而且我们已经将它设置成默认仓库；
 
-3. 在其他电脑设备上执行clone远程仓库的hexo分支clone到本地，
+- 在其他电脑设备上执行clone远程仓库的hexo分支clone到本地，
 
 > git clone -b hexo git@github.com:yourname/yourname.github.io.git
 
 进入本地仓库执行hexo安装：`npm install`
 
-4. 编辑本地blog之后，编辑发布博客
+- 编辑本地blog之后，编辑发布博客
 
 依次执行`git add .` ,`git commit -m "改了啥"`， `git push origin hexo`,同步本地仓库到远程
 
