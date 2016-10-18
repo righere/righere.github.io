@@ -1,10 +1,15 @@
 ---
-title: hexo结合github创建博客，解决多终端或跨系统同步发布
+title: 搭建hexo博客并简单的实现多终端同步
 date: 2016-10-10 23:33:26
 tags: hexo
 ---
 
+主要是熟悉下hexo配合github创建自己的博客，首先按照hexo的官网进行配置，简单地创建自己的博客，然后配置_config.yml,其中可以配置自己的博客主题，部署到github.io中，因为本人用的windows和ubuntu的双系统，顺便解决下多终端下怎么同步写作的问题。
+
+<!--more-->
 ## 安装Hexo
+
+参照官网：[Hexo官网](https://hexo.io/zh-cn/docs/)
 
 新建一个文件夹，这里就是我们本地的Hexo目录了，比如新建`Myblogs`文件夹,然后进入这个目录，
 > cd Myblogs
@@ -39,9 +44,12 @@ tags: hexo
 
 这样就新建了一个自己的blog，页面编辑` /source/_posts/ `目录下面会生成markdown文件
 
-新建远程github仓库，仓库命名规则：你的名字.github.io
+新建远程github仓库，仓库命名规则：`你的名字.github.io`
 
 修改全局配置文件
+
+配置主题：网上可以找到很多好看的主题，推荐next，很简洁，配置简单，[next项目地址](https://github.com/iissnan/hexo-theme-next)
+
 部署到github，修改_config.yml文件中的Deployment，
 ```
     deploy:
@@ -59,9 +67,7 @@ tags: hexo
 > https：//yourname.github.io
 
 ---
-## 在不同终端不同系统写博客的问题
-
-如果在其他电脑上或者系统上编辑自己的博客也很简单：（前提不同的系统或终端一定要先配置好github账户的ssh）
+如果在其他电脑上或者系统上编辑自己的博客也很简单：
 
 1. 先在远程仓库新建一个branch，比如hexo
 
@@ -69,9 +75,11 @@ tags: hexo
 
  接着将hexo的分支设为默认，
  
-![default branch](http://of6x0sb2r.bkt.clouddn.com/SetDefaultBranch.png "设置默认branch")
+ ![default branch](http://of6x0sb2r.bkt.clouddn.com/SetDefaultBranch.png "设置默认branch")
 
 2. 将我们的源文件上传到hexo分支
+
+>注意这里有个巨大的坑！！！如果你用的是第三方的主题theme，是使用git clone下来的话，要把主题文件夹下面把.git文件夹删除掉，不然主题无法push到远程仓库，导致你发布的博客是一片空白
 
 初始化本地仓库： `git init`
 
@@ -97,6 +105,6 @@ tags: hexo
 
 4. 编辑本地blog之后，编辑发布博客
 
-依次执行`git add .` ,`git commit -m "发布了啥"`， `git push origin hexo`,同步本地仓库到远程
+依次执行`git add .` ,`git commit -m "改了啥"`， `git push origin hexo`,同步本地仓库到远程
 
 部署发布博客: `hexo g -d`，这样就生成静态网页部署到了github中

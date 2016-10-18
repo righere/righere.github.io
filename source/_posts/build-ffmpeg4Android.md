@@ -4,9 +4,12 @@ date: 2016-10-10 23:35:12
 tags: [ffmpeg, android, 移植, 编译]
 ---
 
+本文主要实现了FFmpeg的编译和移植，首先在linux下将官网下载的源码编译成.so文件，然后使用android-studio配合NDK工具，将.so文件移植到android项目当中，简单地介绍了如何一步步完成FFmpeg的编译流程
+
+<!--more-->
 ## 1. 准备的编译工具
 
-git，NDK
+Git，NDK
 
 安装git，检查本地git，`git --version`
 
@@ -18,8 +21,6 @@ git，NDK
 
 
 然后下载NDK(现在已经有13的版本了)，推荐使用android studio安装ndk，下载的ndk路径默认在AndroidSDK的ndk-boudle文件中
-
-<!--more-->
 
 ## 2. 配置NDK的环境
 使用terminal配置电脑的环境,(个人电脑，我直接以管理员权限配置的系统环境变量)
