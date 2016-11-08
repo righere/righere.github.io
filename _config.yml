@@ -65,6 +65,10 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# duoshuo
+
+duoshuo_shortname: righeregithub
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

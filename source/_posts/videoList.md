@@ -6,7 +6,7 @@ tags: [android,java]
 
 之前一直想自己做一个视频播放器，首先第一步就是做一个视频列表的界面，这个简单的界面目的是将手机内存中的视频收集在一起，点击相应的视频就开始执行播放等操作。创建一个简单的视频列表主要基于一个listview，把所有的视频都放进listview当中，listview的每一个item对应一个视频，每一个视频item显示相应视频的信息，包括视频的名字、大小、时间长度等等，以下主要分5步完成列表目录：
 <!-- more -->
-### 1.简单的文件列表布局
+# 简单的文件列表布局
 创建一个videolistview.xml线性布局
 ```
     <?xml version="1.0" encoding="utf-8"?>
@@ -78,7 +78,7 @@ tags: [android,java]
 </android.support.constraint.ConstraintLayout>
 ```
 
-### 2.创建视频列表中的每一个视频的videoitem类
+# 创建视频列表中的每一个视频的videoitem类
 > 每一个视频列表的videoitem由两部分组成，一是Video的缩略图，二是video的名字和时长等属性,
 先创建缩略图的LoadImage.java类，再创建VideoItem.java类
 
@@ -218,7 +218,7 @@ public class VideoItem implements Serializable {
 
 }
 ```
-### 3.创建一个VideoList的适配器
+# 创建一个VideoList的适配器
 
 >重点在适配器中添加缩略图方法addthumbnail，和getview方法
 
@@ -283,7 +283,7 @@ public class VideoListAdapter extends BaseAdapter{
 }
 ```
 
-### 4.获取内存中的视频
+# 获取内存中的视频
 >需要创建以上两步只是配置好了布局，后面我们需要从内存中获取视频的文件，首先我们获取到视频文件然后放入List
 
 先实现获取视频list的接口：
@@ -337,7 +337,7 @@ public class VideoProvider implements AbstractProvider {
 }
 ```
 
-### 5.完成视频列表
+# 完成视频列表
 >开始视频列表主界面的主体工程，将前面的视频列表的部件组装成完整的视频播放列表
 
 VideoListActivity.java
