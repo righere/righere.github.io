@@ -116,3 +116,18 @@ tags: hexo
 依次执行`git add .` ,`git commit -m "改了啥"`， `git push origin hexo`,同步本地仓库到远程
 
 部署发布博客: `hexo g`，`hexo d`这样就生成静态网页部署到了github中
+
+## 遇到的一些问题
+
+关于第三方主题next的问题以及解决办法
+
+症状： 今天使用github将next的主题文件进行了更新，使用`hexo g`生成静态网页，然后`hexo s`本地调试成功，也没什么问题，当我`hexo d`发布到远程仓库的之后，在线浏览的时候发现一片空白，这时候使用其他主题都没问题，网上找到了答案。
+
+解决办法: 将主题文件夹下面的`source/vendors`，全部改成`source/lib`
+    
+    1. 先把主题文件夹下面`source/`下的`vendors`改成`lib`；
+    2. 将主题配置文件中`_internal: vendors`改成`_internal: lib`
+    3. 将主题文件夹下面其他文件中的`source/vendors`改成`source/lib`
+<center>
+![where're libs](http://of6x0sb2r.bkt.clouddn.com/hexo_next.png)
+</center>
