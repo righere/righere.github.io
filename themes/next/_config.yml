@@ -16,6 +16,9 @@ rss:
 # Specify the date when the site was setup
 #since: 2015
 
+# Footer `powered-by` and `theme-info` copyright
+copyright: true
+
 # Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.
 # See: https://support.google.com/webmasters/answer/139066
 # Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
@@ -33,6 +36,7 @@ menu:
   #about: /about
   archives: /archives
   tags: /tags
+  #sitemap: /sitemap.xml
   #commonweal: /404.html
 
 
@@ -49,6 +53,7 @@ menu_icons:
   categories: th
   tags: tags
   archives: archive
+  sitemap: sitemap
   commonweal: heartbeat
 
 
@@ -207,6 +212,8 @@ highlight_theme: normal
 # Automatically scroll page to section which is under <!-- more --> mark.
 scroll_to_more: true
 
+# Automatically excerpt description in homepage as preamble text.
+excerpt_description: true
 
 # Automatically Excerpt. Not recommand.
 # Please use <!-- more --> in the post to control excerpt accurately.
@@ -231,6 +238,7 @@ auto_excerpt:
 # MathJax Support
 mathjax:
   enable: false
+  per_page: false
   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 
@@ -245,6 +253,9 @@ mathjax:
 
 # Disqus
 #disqus_shortname:
+
+# Hypercomments
+#hypercomments_id: 
 
 # Baidu Share
 # Available value:
@@ -327,11 +338,24 @@ busuanzi_count:
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
 
+
 # Tencent analytics ID
 # tencent_analytics:
 
+
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
 baidu_push: false
+
+
+# Algolia Search
+algolia_search:
+  enable: false
+  hits:
+    per_page: 10
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}"
+    hits_stats: "${hits} results found in ${time} ms"
 
 
 
@@ -385,9 +409,15 @@ vendors:
   # See: https://faisalman.github.io/ua-parser-js/
   ua_parser:
 
-  # Internal version: 4.4.0
+  # Internal version: 4.6.2
   # See: http://fontawesome.io/
   fontawesome:
+
+  # Internal version: 1
+  # https://www.algolia.com
+  algolia_instant_js:
+  algolia_instant_css:
+
 
 
 # Assets
@@ -396,4 +426,4 @@ js: js
 images: images
 
 # Theme version
-version: 5.0.2
+version: 5.1.0
