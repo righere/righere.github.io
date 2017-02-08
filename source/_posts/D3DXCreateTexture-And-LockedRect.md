@@ -5,8 +5,11 @@ tags:
 ---
 最近使用Directx对图像进行显示，出现图像乱码的现象，研究发现创建Texture的时候指定的图片宽度和锁定的纹理表面的宽度(LockedRect.Pitch)不一致，导致图片纹理是乱码。下面通过两种方式创建纹理分析LockedRect和最终纹理宽高之间的关系，一是通过图片的数据创建纹理，二是直接通过已知图片的像素点数据来创建数据。
 <!--more-->
+
 <center>
-![乱码图片](http://of6x0sb2r.bkt.clouddn.com/wrongTexture.png-WaterMark "乱码图片")![正确图片](http://of6x0sb2r.bkt.clouddn.com/rightTexture.png-WaterMark "正确图片")
+![乱码图片](http://of6x0sb2r.bkt.clouddn.com/wrongTexture.png-WaterMark "乱码图片")
+
+![正确图片](http://of6x0sb2r.bkt.clouddn.com/rightTexture.png-WaterMark "正确图片")
 </center>
 # LockedRect数据结构
 
@@ -63,7 +66,9 @@ m_pTex1->UnlockRect(0);
 
 D3DXSaveTextureToFile("D:\\1.bmp", D3DXIFF_BMP, m_pTex1, NULL); //保存图片到D盘
 ```
-其实以上代码是有错误的，1、以二维图片的存储的思维，好像是没有错的，但是实际上计算机内存里面比不是二维储存的，而是一维存储方式；2、将数据从内存拷贝到显存当中又会不一样，在显存中纹理会有一个固定的位宽，这个位宽由显卡决定，一般有128bit，256bit等;
+**其实以上代码是有错误的**，
+- 1、以二维图片的存储的思维，好像是没有错的，但是实际上计算机内存里面比不是二维储存的，而是一维存储方式；
+- 2、将数据从内存拷贝到纹理当中又会不一样，在显存中纹理会有一个固定的位宽，这个位宽由电脑硬件决定，一般有128bit，64bit等;
 
 所以我们要将上面for循环里面的代码进行修改：
 ```
@@ -86,8 +91,9 @@ for (int k = 0; k < 4; k++)
     pSource[x + k] = imgData[x + k];
 }
 ```
-- **注意二**： 不能错误地把创建纹理表面的宽度和图片的宽度划等号，他们并不相等。
-以我电脑显卡为例，创建表面的宽度是128的倍数，即`LockedRect.Pitch`是128的倍数，`LockedRect.Pitch = 128*ceil(imgWidth*4/128)`,那么问题来了，假如我现在的图片宽度是2160，按正常的4通道图片来算应该是`2160 * 4 = 8640`,但是我们锁定的纹理表面的宽度`LockedRect.Pitch = 8704 = 128 * ceil(2160*4/128)`，
+- **注意二**： 不能错误地把创建纹理表面的宽度和图片的宽度划等号，他们并不相等,他们之间的关系**使用公式** `LockedRect.Pitch = 128*ceil(imgWidth*4/128)`。
+以我电脑显卡为例，创建表面的宽度是128的倍数，即`LockedRect.Pitch`是128的倍数，
+那么问题来了，假如我现在的图片宽度是2160，按正常的4通道图片来算应该是`2160 * 4 = 8640`,但是我们锁定的纹理表面的宽度`LockedRect.Pitch = 8704 = 128 * ceil(2160*4/128)`，
 这样就多出了64字节的空间，怎么办？其实不用管，不用进行任何操作。
 
 # 使用已知图片的RGB数据创建纹理
