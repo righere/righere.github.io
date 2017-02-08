@@ -8,7 +8,6 @@ tags:
 
 <center>
 ![乱码图片](http://of6x0sb2r.bkt.clouddn.com/wrongTexture.png-WaterMark "乱码图片")
-
 ![正确图片](http://of6x0sb2r.bkt.clouddn.com/rightTexture.png-WaterMark "正确图片")
 </center>
 # LockedRect数据结构
