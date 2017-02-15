@@ -1,7 +1,7 @@
 ---
 title: D3DXCreateTexture And LockedRect
 date: 2017-01-18 11:07:02
-tags:
+tags: DirectX9
 ---
 最近使用Directx对图像进行显示，出现图像乱码的现象，研究发现创建Texture的时候指定的图片宽度和锁定的纹理表面的宽度(LockedRect.Pitch)不一致，导致图片纹理是乱码。下面通过两种方式创建纹理分析LockedRect和最终纹理宽高之间的关系，一是通过图片的数据创建纹理，二是直接通过已知图片的像素点数据来创建数据。
 <!--more-->

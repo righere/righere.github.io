@@ -7,6 +7,11 @@ tags: [ffmpeg, android, 移植, 编译]
 本文主要实现了FFmpeg的编译和移植，首先在linux下将官网下载的源码编译成.so文件，然后使用android-studio配合NDK工具，将.so文件移植到android项目当中，简单地介绍了如何一步步完成FFmpeg的编译流程
 
 <!--more-->
+
+参考文章：[手把手图文并茂教你用Android Studio编译FFmpeg库并移植](http://blog.csdn.net/hejjunlin/article/details/52661331)
+
+下面是我自己在ubuntu下编译
+
 ## 准备的编译工具
 
 Git，NDK
@@ -136,7 +141,7 @@ function func_name
 ```
 还有就是脚本编辑推荐使用vim非常方便，变量参数一目了然
 <center>
-![FFmpegBuildScript](http://of6x0sb2r.bkt.clouddn.com/ffmpegBuildScript.png)
+![FFmpegBuildScript](http://of6x0sb2r.bkt.clouddn.com/ffmpegBuildScript.png-WaterMark)
 </center>
 
 ## 开始编译
@@ -144,13 +149,13 @@ function func_name
 （先增加执行权限 `sudo chmod +x build4android.sh`,以防权限不够）
 > ./build4anroid.sh
 
-脚本执行中：![脚本执行中图片](http://of6x0sb2r.bkt.clouddn.com/buildffmpeg_1.png)
+脚本执行中：![脚本执行中图片](http://of6x0sb2r.bkt.clouddn.com/buildffmpeg_1.png-WaterMark)
 
-脚本执行完成:![脚本执行完成图图片](http://of6x0sb2r.bkt.clouddn.com/finishffmpeg.png)
+脚本执行完成:![脚本执行完成图图片](http://of6x0sb2r.bkt.clouddn.com/finishffmpeg.png-WaterMark)
 
 生成的`android/arm/`目录中的文件,图中标出的为链接文件可以删除：
 
-![生成的.so文件图片](http://of6x0sb2r.bkt.clouddn.com/ffmpeglib.png)
+![生成的.so文件图片](http://of6x0sb2r.bkt.clouddn.com/ffmpeglib.png-WaterMark)
 
 
 ## 移植我们的.so文件
@@ -240,7 +245,7 @@ function func_name
 ```
 ### 编写C文件
 
-在上面7.1中的中，我们制定了c文件的名字为`ffmpeg-jni.c`，所以c文件的与此保持一致，
+在上面编写的Android.mk中，我们制定了c文件的名字为`ffmpeg-jni.c`，所以c文件的与此保持一致，
 
 函数申明语法：JNIEXPORT jstring Java_包名_activity名_函数名，包名中间的点号`.`全部变成下划线`_`
 
@@ -316,7 +321,7 @@ JNIEXPORT jstring Java_com_righere_ffmpegndkbuild_MainActivity_avcodecInfo(JNIEn
 ### 执行ndk-build
 
 <center>
-![ndk-build](http://of6x0sb2r.bkt.clouddn.com/ndk-build.png)
+![ndk-build](http://of6x0sb2r.bkt.clouddn.com/ndk-build.png-WaterMark)
 </center>
 
 编译完成main文件夹下会增加`libs`和`obj`两个文件夹，其中`libs/armeabi`下就是我们需要的`.so`文件
@@ -336,7 +341,7 @@ JNIEXPORT jstring Java_com_righere_ffmpegndkbuild_MainActivity_avcodecInfo(JNIEn
 
 切换回Android结构的工程试图，系统会自动把生成的`.so`文件放入`jniLibs`中，看到这个FFmpeg的移植基本就成功了
 <center>
-![Android—structure](http://of6x0sb2r.bkt.clouddn.com/jniLibs.png)
+![Android—structure](http://of6x0sb2r.bkt.clouddn.com/jniLibs.png-WaterMark)
 </center>
 
 ### 测试FFmpeg移植
@@ -368,5 +373,3 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-
-参考文章：[手把手图文并茂教你用Android Studio编译FFmpeg库并移植](http://blog.csdn.net/hejjunlin/article/details/52661331)
