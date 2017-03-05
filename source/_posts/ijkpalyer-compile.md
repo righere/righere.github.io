@@ -3,13 +3,18 @@ title: ijkpalyer的官方指导编译
 date: 2017-02-24 17:29:14
 tags: [ijkpalyer,android]
 ---
+ijkplayer是基于FFmpeg的开源的移动平台视频播放器，跨平台支持Android和IOS，支持本地播放和在线视频播放，有点类似google的开源播放器[ExoPlayer](https://github.com/google/ExoPlayer)，想从底层了解视频播放的过程，ijkplayer是一个非常值得学习的开源项目。
+主要先介绍下ijkplayer的编译过程：
+
+![ijkplayer-proccess](http://of6x0sb2r.bkt.clouddn.com/ijkplayer.png)
+
+<!--more-->
 
 # clone ijkplayer code source
 
 ```
 git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android
 ```
-<!--more-->
 
 ![clone](http://of6x0sb2r.bkt.clouddn.com/clone%20ijkplayer.png-WaterMark)
 
