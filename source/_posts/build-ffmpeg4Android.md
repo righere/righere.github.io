@@ -40,7 +40,7 @@ Git，NDK
 
 ## 下载ffmpeg的最新的源码
 新建一个ffempeg的工作文件夹，例如 `mkdir workplace`
-> git clone git clone https://git.ffmpeg.org/ffmpeg.git
+> git clone https://git.ffmpeg.org/ffmpeg.git
 
 也可以直接去官网下载：[ffmpeg官网下载](https://ffmpeg.org/download.html)
 
