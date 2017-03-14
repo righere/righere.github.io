@@ -13,7 +13,7 @@ tags: Android Compile
 
 ![make-kernel](http://of6x0sb2r.bkt.clouddn.com/rk3288make-kernel.png-WaterMark)
 
-![kernel-success](http://of6x0sb2r.bkt.clouddn.com/rk3288build-kernel-success.png-WaterMak)
+![kernel-success](http://of6x0sb2r.bkt.clouddn.com/rk3288build-kernel-success.png-WaterMark)
 
 # 编译系统
 
