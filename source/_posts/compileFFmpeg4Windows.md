@@ -1,5 +1,5 @@
 ---
-title: compileFFmpeg4Windows
+title: CompileFFmpeg4Windows
 date: 2017-03-14 17:43:57
 tags: FFmpeg
 ---
